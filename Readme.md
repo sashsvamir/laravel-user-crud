@@ -25,6 +25,31 @@ return [
 ```
 
 
+Next, add traits `UserNotifyTrait`, `UserRolesTrait` and implementation `HasRolesInterface` to `App\Model\User`:
+```php
+class Model implements HasRolesInterface {
+    use UserNotifyTrait, UserRolesTrait;
+    ...
+}
+```
+Also you can define own roles:
+```php
+class Model implements HasRolesInterface {
+    const ROLE_MANAGER = 'manager';
+    public static function getAvailableRoles(): array {
+        return [
+            self::ROLE_ADMIN,
+            self::ROLE_MODERATOR,
+            self::ROLE_MANAGER,
+        ];
+    }
+}
+```
+
+
+
+
+
 
 
 ## Commands
@@ -44,7 +69,7 @@ artisan user:role-remove
 
 
 
-## Gates
+## Gates/Roles
 
 Now any user can have follow roles: `admin` and `moderator`
 
@@ -58,6 +83,9 @@ Also will be adding gate ability `edit-users` that has been applied to all users
 ```blade
 @can('user-edit')
 ```
+
+
+
 
 
 

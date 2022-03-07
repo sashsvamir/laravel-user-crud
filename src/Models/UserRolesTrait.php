@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @property array $roles
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRoles($value)
  */
 trait UserRolesTrait
 {
