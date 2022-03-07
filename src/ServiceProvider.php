@@ -25,7 +25,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         ]);
 
         // load migrations
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         // register console commands
         $this->loadCommands();

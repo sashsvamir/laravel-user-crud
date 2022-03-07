@@ -9,7 +9,7 @@ This extension improve User model, add console commands and page (CRUD) to manag
 
 Run migration to update `users` table:
 ```sh
-artisan migrate
+artisan migrate --path=vendor/sashsvamir/laravel-user-crud/database/migrations/setup_user_crud.php --step
 ```
 Note: will be added follow columns: `roles, notify, notify-spam`
 
