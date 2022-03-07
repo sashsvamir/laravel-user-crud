@@ -7,15 +7,16 @@ This extension improve User model, add console commands and page (CRUD) to manag
 
 ## Setup
 
-Run migration to update `users` table:
+Publish and run migration to update `users` table:
 ```sh
-artisan migrate --path=vendor/sashsvamir/laravel-user-crud/database/migrations/setup_user_crud.php --step
+artisan vendor:publish --tag=user-crud-migrations
+artisan migrate
 ```
 Note: will be added follow columns: `roles, notify, notify-spam`
 
 If you previously has renamed users table, you can set new name in config, but first you must publish `config/user-crud.php` config:
 ```sh
-./artisan vendor:publish --provider="Sashsvamir\LaravelUserCRUD\ServiceProvider"
+artisan vendor:publish --tag=user-crud-config
 ```
 ...and set new users table name:
 ```php
@@ -109,5 +110,15 @@ To add link to users CRUD in your admin template, add follow (bootstrap5 style):
         <a href="{{ route('admin.user.index') }}" class="nav-link {{ (request()->routeIs('admin.user.*')) ? 'active' : '' }}">Users</a>
     </li>
 @endcan
+```
+
+
+
+
+
+## Override blade templates
+To publish blade view files, run:
+```sh
+artisan vendor:publish --tag=user-crud-views
 ```
 

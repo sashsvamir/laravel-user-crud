@@ -15,7 +15,7 @@ class UserController
     {
         $users = User::all();
 
-        return view('user-crud::web.admin.user.index', compact('users'));
+        return view('user-crud::index', compact('users'));
     }
 
     public function create()
@@ -23,7 +23,7 @@ class UserController
         $user = new User;
         $roles = User::getAvailableRoles();
 
-        return view('user-crud::web.admin.user.show', compact('user', 'roles'));
+        return view('user-crud::show', compact('user', 'roles'));
     }
 
     public function store(UserCreateRequest $request)
@@ -39,7 +39,7 @@ class UserController
     {
         $roles = User::getAvailableRoles();
 
-        return view('user-crud::web.admin.user.show', compact('user', 'roles'));
+        return view('user-crud::.show', compact('user', 'roles'));
     }
 
     public function update(UserUpdateRequest $request, User $user)
