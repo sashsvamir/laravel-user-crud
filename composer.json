@@ -1,0 +1,25 @@
+{
+    "name": "sashsvamir/laravel-user-crud",
+    "description": "User model CRUD implementation for Laravel",
+    "keywords": ["laravel", "user", "crud"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Shchukin",
+            "email": "1340068@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sashsvamir\\LaravelUserCRUD\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sashsvamir\\LaravelUserCRUD\\ServiceProvider"
+            ]
+        }
+    }
+}
