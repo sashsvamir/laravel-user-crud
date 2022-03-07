@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Builder;
 /**
  * @property int|null $notify
  * @property int|null $notify_spam
+ * @method static Builder notifiableSpam()
+ * @method static Builder notifiable()
  */
 trait UserNotifyTrait
 {
