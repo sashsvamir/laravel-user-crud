@@ -67,9 +67,9 @@
                                     <td class="created_at ">
                                         <small>{{ $user->updated_at }}</small>
                                     </td>
-                                    <td class="controls text-end">
+                                    <td class="text-end">
 
-                                        <a href="{{ route('admin.user.edit', $user) }}"><i class="far fa-edit"></i></a>
+                                        <x-admin.table-btn-edit :url="route('admin.user.edit', $user)" />
 
                                         <x-admin.table-btn-delete :action-url="route('admin.user.destroy', $user)" />
 
