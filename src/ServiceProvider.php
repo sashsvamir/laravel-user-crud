@@ -22,7 +22,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // publish config
         $this->publishes([
             __DIR__.'/../config/user-crud.php' => config_path('user-crud.php'),
-        ]);
+        ], 'user-crud-config');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/user-crud'),
+        ], 'user-crud-views');
+
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'user-crud-migrations');
+
 
         // load migrations
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
