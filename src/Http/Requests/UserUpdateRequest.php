@@ -20,8 +20,8 @@ class UserUpdateRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['string', 'min:4'],
-            'notify' => ['boolean'],
-            'notify_spam' => ['boolean'],
+            'notify' => ['nullable', 'boolean'],
+            'notify_spam' => ['nullable', 'boolean'],
             'roles' => 'array',
             'roles.*' => Rule::in(User::getAvailableRoles()),
         ];
