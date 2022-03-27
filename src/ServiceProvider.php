@@ -12,6 +12,7 @@ use Sashsvamir\LaravelUserCRUD\Console\Commands\User\UserNotifySpam;
 use Sashsvamir\LaravelUserCRUD\Console\Commands\User\UserRemove;
 use Sashsvamir\LaravelUserCRUD\Console\Commands\User\UserRoleAdd;
 use Sashsvamir\LaravelUserCRUD\Console\Commands\User\UserRoleRemove;
+use Sashsvamir\LaravelUserCRUD\Models\HasRolesInterface;
 
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -75,11 +76,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function registerAuthRoles()
     {
-        // add roles to "can:role-<role>" validations
-        foreach (User::getAvailableRoles() as $role) {
-            Gate::define("role-${role}", function (User $user) use ($role) {
-                return $user->hasRole($role);
-            });
+        if (method_exists(User::class, 'getAvailableRoles')) {
+            // add roles to "can:role-<role>" validations
+            foreach (User::getAvailableRoles() as $role) {
+                Gate::define("role-${role}", function (User $user) use ($role) {
+                    return $user->hasRole($role);
+                });
+            }
         }
 
         // add role "edit-users"
